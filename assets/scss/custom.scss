@@ -1,1 +1,8 @@
 /* Place your custom SCSS in HUGO_SITE_FOLDER/assets/scss/custom.scss */
+p a.link {
+    color: #fbf;
+    box-shadow: none;
+}
+p a.link:hover {
+    box-shadow: 0 -2px rgba(var(--link-background-color),var(--link-background-opacity))inset;
+}
