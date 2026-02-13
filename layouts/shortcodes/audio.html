@@ -1,0 +1,24 @@
+{{- $src := .Get "src" | default (.Get 0) -}}
+{{- $caption := .Get "caption" -}}
+
+<figure class="audio-wrapper">
+    <audio
+    controls
+    src="{{- $src -}}"
+    {{ if .Get "autoplay" }}autoplay{{ end }}
+    {{ if .Get "loop" }}loop{{ end }}
+    {{ with .Get "preload" }}preload="{{ . }}"{{ end }}
+    style="width: 100%;"
+    >
+        <p>
+            Your browser doesn't support HTML5 audio. Here is a
+            <a href="{{- $src -}}">link to the audio</a> instead.
+        </p>
+    </audio>
+
+    {{- with $caption -}}
+        <figcaption>
+            {{ . | markdownify }}
+        </figcaption>
+    {{- end -}}
+</figure>
